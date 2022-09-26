@@ -1,0 +1,175 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Launch Q76",
+            "request": "launch",
+            "mainClass": "Q76",
+            "projectName": "leetcode_22ddfd5d"
+        },
+        {
+            "type": "java",
+            "name": "Launch Q125",
+            "request": "launch",
+            "mainClass": "Q125",
+            "projectName": "leetcode_22ddfd5d"
+        },
+        {
+            "type": "java",
+            "name": "Launch Q811",
+            "request": "launch",
+            "mainClass": "Q811",
+            "projectName": "leetcode_22ddfd5d"
+        },
+        {
+            "type": "java",
+            "name": "Launch Q424",
+            "request": "launch",
+            "mainClass": "Q424",
+            "projectName": "leetcode_22ddfd5d"
+        },
+        {
+            "type": "java",
+            "name": "Launch Q49",
+            "request": "launch",
+            "mainClass": "Q49",
+            "projectName": "leetcode_22ddfd5d"
+        },
+        {
+            "type": "java",
+            "name": "Launch Q31",
+            "request": "launch",
+            "mainClass": "Q31",
+            "projectName": "leetcode_22ddfd5d"
+        },
+        {
+            "type": "java",
+            "name": "Launch Q68",
+            "request": "launch",
+            "mainClass": "Q68",
+            "projectName": "leetcode_22ddfd5d"
+        },
+        {
+            "type": "java",
+            "name": "Launch Q200",
+            "request": "launch",
+            "mainClass": "Q200",
+            "projectName": "leetcode_22ddfd5d"
+        },
+        {
+            "type": "java",
+            "name": "Launch Q37",
+            "request": "launch",
+            "mainClass": "Q37",
+            "projectName": "leetcode_22ddfd5d"
+        },
+        {
+            "type": "java",
+            "name": "Launch Current File",
+            "request": "launch",
+            "mainClass": "${file}"
+        },
+        {
+            "type": "java",
+            "name": "Launch Q11",
+            "request": "launch",
+            "mainClass": "Q11",
+            "projectName": "leetcode_22ddfd5d"
+        },
+        {
+            "type": "java",
+            "name": "Launch Q14",
+            "request": "launch",
+            "mainClass": "Q14",
+            "projectName": "leetcode_22ddfd5d"
+        },
+        {
+            "type": "java",
+            "name": "Launch Q15",
+            "request": "launch",
+            "mainClass": "Q15",
+            "projectName": "leetcode_22ddfd5d"
+        },
+        {
+            "type": "java",
+            "name": "Launch Q152",
+            "request": "launch",
+            "mainClass": "Q152",
+            "projectName": "leetcode_22ddfd5d"
+        },
+        {
+            "type": "java",
+            "name": "Launch Q153",
+            "request": "launch",
+            "mainClass": "Q153",
+            "projectName": "leetcode_22ddfd5d"
+        },
+        {
+            "type": "java",
+            "name": "Launch Q16",
+            "request": "launch",
+            "mainClass": "Q16",
+            "projectName": "leetcode_22ddfd5d"
+        },
+        {
+            "type": "java",
+            "name": "Launch Q17",
+            "request": "launch",
+            "mainClass": "Q17",
+            "projectName": "leetcode_22ddfd5d"
+        },
+        {
+            "type": "java",
+            "name": "Launch Q18",
+            "request": "launch",
+            "mainClass": "Q18",
+            "projectName": "leetcode_22ddfd5d"
+        },
+        {
+            "type": "java",
+            "name": "Launch Q19",
+            "request": "launch",
+            "mainClass": "Q19",
+            "projectName": "leetcode_22ddfd5d"
+        },
+        {
+            "type": "java",
+            "name": "Launch Q238",
+            "request": "launch",
+            "mainClass": "Q238",
+            "projectName": "leetcode_22ddfd5d"
+        },
+        {
+            "type": "java",
+            "name": "Launch Q33",
+            "request": "launch",
+            "mainClass": "Q33",
+            "projectName": "leetcode_22ddfd5d"
+        },
+        {
+            "type": "java",
+            "name": "Launch Q4",
+            "request": "launch",
+            "mainClass": "Q4",
+            "projectName": "leetcode_22ddfd5d"
+        },
+        {
+            "type": "java",
+            "name": "Launch Q53",
+            "request": "launch",
+            "mainClass": "Q53",
+            "projectName": "leetcode_22ddfd5d"
+        },
+        {
+            "type": "java",
+            "name": "Launch Q9",
+            "request": "launch",
+            "mainClass": "Q9",
+            "projectName": "leetcode_22ddfd5d"
+        }
+    ]
+}
