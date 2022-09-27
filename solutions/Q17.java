@@ -38,6 +38,11 @@ public class Q17 {
             { "w", "x", "y", "z" }
     };
 
+    // another way is to create a recursive function (back-tracking)
+    // so by repeating itself, the result string will add char 1 by 1
+    // much simple code in Python but not in java
+    // in java, the performance is worse than current one`
+
     public static void main(String[] args) {
         Q17 findalcom = new Q17();
         System.out.println("null arguement: " + findalcom.letterCombinations(""));
