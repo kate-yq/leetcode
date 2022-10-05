@@ -6,6 +6,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "Launch LRUCache",
+            "request": "launch",
+            "mainClass": "LRUCache",
+            "projectName": "leetcode_22ddfd5d"
+        },
+        {
+            "type": "java",
             "name": "Launch Q23",
             "request": "launch",
             "mainClass": "Q23",
