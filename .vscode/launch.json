@@ -6,6 +6,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "Launch Q1048",
+            "request": "launch",
+            "mainClass": "Q1048",
+            "projectName": "leetcode_22ddfd5d"
+        },
+        {
+            "type": "java",
             "name": "Launch Q118",
             "request": "launch",
             "mainClass": "Q118",
