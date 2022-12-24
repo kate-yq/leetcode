@@ -6,16 +6,15 @@ public class Q37 {
     boolean solve(char[][] board){
         for(int i=0;i<board[0].length;i++){
             for(int j=0;j<board[0].length;j++){
-                
                 if(board[i][j] == '.'){
                     for(char p ='1';p <= '9';p++){
                         if(isValid(board,i,j,p)){
                             board[i][j] = p;
-                            if(solve(board)) return true;
-                            
-                            else{
+                            if(solve(board)){
+                                return true;
+                            }else{
                             board[i][j] = '.';
-                        }
+                            }
                         }
                     }
                     return false;
