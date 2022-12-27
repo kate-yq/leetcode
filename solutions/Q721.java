@@ -1,65 +1,70 @@
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 
 public class Q721 {
-    public List<List<String>> accountsMerge(List<List<String>> accounts) {
-        List<List<String>> results = new ArrayList<>();
-        HashMap<String, HashSet<HashSet<String>>> map = new HashMap<>();
-        for (List<String> account : accounts){
-            String name = account.get(0);
-            if (map.containsKey(name)){
-                boolean existing = false;
-                for (HashSet<String> emails : map.get(name)){
-                    for (int i=1; i<account.size(); i++){
-                        if (emails.contains(account.get(i))){
-                            for (int j=1; j<account.size(); j++){
-                                emails.add(account.get(j));
-                            }
-                            existing = true;
-                            break;
-                        }
-                    }
-                    if (existing){
-                        break;
-                    }
-                }
-                if (!existing){
-                    HashSet<String> new_emails = new HashSet<>();
-                    for (int k=1; k<account.size(); k++){
-                        new_emails.add(account.get(k));
-                    }
-                    map.get(name).add(new_emails);
-                }
-            } else {
-                HashSet<String> new_emails = new HashSet<>();
-                for (int k=1; k<account.size(); k++){
-                    new_emails.add(account.get(k));
-                }
-                map.put(name, new HashSet<HashSet<String>>());
-                map.get(name).add(new_emails);
-            }
-        }
+    HashSet<String> visited = new HashSet<>();
+    HashMap<String, ArrayList<String>> adjacent = new HashMap<>();
 
-        for (String people : map.keySet()){
-            for (HashSet<String> emails : map.get(people)){
-                List<String> account =  new ArrayList<>();
-                for (String email : emails){
-                    account.add(email);
+    public List<List<String>> accountsMerge(List<List<String>> accounts) {
+        for (List<String> account : accounts) {
+            int accountSize = account.size();
+            
+            // Building adjacency list
+            // Adding edge between first email to all other emails in the account
+            String accountFirstEmail = account.get(1);
+            for (int j = 2; j < accountSize; j++) {
+                String accountEmail = account.get(j);
+                
+                if (!adjacent.containsKey(accountFirstEmail)) {
+                    adjacent.put(accountFirstEmail, new ArrayList<String>());
                 }
-                account.sort((s1, s2) -> {
-                    for (int i=0; i<s1.length() && i<s2.length(); i++){
-                        if (s1.charAt(i) != s2.charAt(i)){
-                            return s1.charAt(i)-s2.charAt(i);
-                        }
-                    }
-                    return s1.length()-s2.length();
-                });
-                account.add(0, people);
-                results.add(account);
+                adjacent.get(accountFirstEmail).add(accountEmail);
+                
+                if (!adjacent.containsKey(accountEmail)) {
+                    adjacent.put(accountEmail, new ArrayList<String>());
+                }
+                adjacent.get(accountEmail).add(accountFirstEmail);
             }
         }
-        return results;
+        
+        // Traverse over all accounts to store components
+        List<List<String>> mergedAccounts = new ArrayList<>();
+        for (List<String> account : accounts) {
+            String accountName = account.get(0);
+            String accountFirstEmail = account.get(1);
+            
+            // If email is visited, then it's a part of different component
+            // Hence perform DFS only if email is not visited yet
+            if (!visited.contains(accountFirstEmail)) {
+                List<String> mergedAccount = new ArrayList<>();
+                // Adding account name at the 0th index
+                mergedAccount.add(accountName);
+                
+                DFS(mergedAccount, accountFirstEmail);
+                Collections.sort(mergedAccount.subList(1, mergedAccount.size())); 
+                mergedAccounts.add(mergedAccount);
+            }
+        }
+        
+        return mergedAccounts;
+    }
+
+    private void DFS(List<String> mergedAccount, String email) {
+        visited.add(email);
+        // Add the email vector that contains the current component's emails
+        mergedAccount.add(email);
+        
+        if (!adjacent.containsKey(email)) {
+            return;
+        }
+        
+        for (String neighbor : adjacent.get(email)) {
+            if (!visited.contains(neighbor)) {
+                DFS(mergedAccount, neighbor);
+            }
+        }
     }
 }
