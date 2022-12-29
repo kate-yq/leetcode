@@ -1,59 +1,76 @@
 import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.List;
 
 public class Q212 {
-    HashSet<String> dictionay;
-    int ROW, COL;
-    char[][] board;
-    List<String> results;
+    char[][] _board = null;
+    ArrayList<String> _result = new ArrayList<String>();
 
     public List<String> findWords(char[][] board, String[] words) {
-        this.dictionay = new HashSet<>();
-        for (int i=0; i<words.length; i++){
-            this.dictionay.add(words[i]);
-        }
-        this.board = board;
-        this.ROW = board.length;
-        this.COL = board[0].length;
-        this.results = new ArrayList<>();
 
-        boolean[][] checked = new boolean[ROW][COL];
-        
-        for (int row=0; row<ROW; row++){
-            for (int col = 0; col< COL; col++){
-                String word = "";
-                _search(row, col, checked, word);
+        // Step 1  Construct the Trie
+        TrieNode root = new TrieNode();
+        for (String word : words) {
+            TrieNode node = root;
+
+            for (Character letter : word.toCharArray()) {
+                if (node.children.containsKey(letter)) {
+                    node = node.children.get(letter);
+                } else {
+                    TrieNode newNode = new TrieNode();
+                    node.children.put(letter, newNode);
+                    node = newNode;
+                }
+            }
+            node.word = word; // store words in Trie
+        }
+
+        this._board = board;
+        // Step 2). Backtracking starting for each cell in the board
+        for (int row = 0; row < board.length; ++row) {
+            for (int col = 0; col < board[row].length; ++col) {
+                if (root.children.containsKey(board[row][col])) {
+                    backtracking(row, col, root);
+                }
             }
         }
-        return results;
+
+        return this._result;
     }
 
-    private void _search(int row, int col, boolean[][] checked, String word){
-        if (checked[row][col]){
-            return;
+    private void backtracking(int row, int col, TrieNode parent) {
+        Character letter = this._board[row][col];
+        TrieNode currNode = parent.children.get(letter);
+
+        // check if there is any match
+        if (currNode.word != null) {
+            this._result.add(currNode.word);
+            currNode.word = null;
         }
-        word = word+board[row][col];
-        checked[row][col] = true;
-        if (this.dictionay.contains(word)){
-            this.results.add(word);
+
+        // mark the current letter before the EXPLORATION
+        this._board[row][col] = '#';
+
+        // explore neighbor cells in around-clock directions: up, right, down, left
+        int[] rowOffset = { -1, 0, 1, 0 };
+        int[] colOffset = { 0, 1, 0, -1 };
+        for (int i = 0; i < 4; ++i) {
+            int newRow = row + rowOffset[i];
+            int newCol = col + colOffset[i];
+            if (newRow < 0 || newRow >= this._board.length || newCol < 0
+                    || newCol >= this._board[0].length) {
+                continue;
+            }
+            if (currNode.children.containsKey(this._board[newRow][newCol])) {
+                backtracking(newRow, newCol, currNode);
+            }
         }
-        if (row>0){
-            _search(row-1, col, checked, word);
-            checked[row-1][col] = false;
+
+        // End of EXPLORATION, restore the original letter in the board.
+        this._board[row][col] = letter;
+
+        // Optimization: incrementally remove the leaf nodes
+        if (currNode.children.isEmpty()) {
+            parent.children.remove(letter);
         }
-        if (row<ROW-1){
-            _search(row+1, col, checked, word);
-            checked[row+1][col] = false;
-        }
-        if (col>0){
-            _search(row, col-1, checked, word);
-            checked[row][col-1] = false;
-        }
-        if (col<COL-1){
-            _search(row, col+1, checked, word);
-            checked[row][col+1] = false;
-        }
-        checked[row][col] = false;
     }
 }
