@@ -16,10 +16,4 @@ class Q53 {
         }
         return max_sum;
     }
-
-    public static void main(String[] args){
-        int[] test_case = {-2,-1,-3};
-        Q53 mSA = new Q53();
-        System.out.println(mSA.maxSubArray(test_case));
-    }
 }
