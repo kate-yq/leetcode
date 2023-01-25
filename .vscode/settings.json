@@ -1,6 +1,7 @@
 {
     "java.project.sourcePaths": [
-        "solutions",
-        "utils"
+        "utils",
+        "mockInterview",
+        "solutions"
     ]
 }
