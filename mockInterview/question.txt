@@ -1,0 +1,10 @@
+containsDuplicate
+return: boolean
+
+input: 1 int array, int k
+nums[i] == nums[j] && abs(i-j)<=k
+
+nums[] = {1, 2, 3, 2, 3}
+k =2, 3, 4, ...  true
+
+k=1              false
