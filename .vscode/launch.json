@@ -6,6 +6,90 @@
     "configurations": [
         {
             "type": "java",
+            "name": "Launch Q6367",
+            "request": "launch",
+            "mainClass": "Q6367",
+            "projectName": "leetcode_22ddfd5d"
+        },
+        {
+            "type": "java",
+            "name": "Launch Q6368",
+            "request": "launch",
+            "mainClass": "Q6368",
+            "projectName": "leetcode_22ddfd5d"
+        },
+        {
+            "type": "java",
+            "name": "Launch MinMaxArray",
+            "request": "launch",
+            "mainClass": "MinMaxArray",
+            "projectName": "leetcode_22ddfd5d"
+        },
+        {
+            "type": "java",
+            "name": "Launch PerfectPair",
+            "request": "launch",
+            "mainClass": "PerfectPair",
+            "projectName": "leetcode_22ddfd5d"
+        },
+        {
+            "type": "java",
+            "name": "Launch SortedArray",
+            "request": "launch",
+            "mainClass": "SortedArray",
+            "projectName": "leetcode_22ddfd5d"
+        },
+        {
+            "type": "java",
+            "name": "Launch NonOverlapInterval",
+            "request": "launch",
+            "mainClass": "NonOverlapInterval",
+            "projectName": "leetcode_22ddfd5d"
+        },
+        {
+            "type": "java",
+            "name": "Launch MaximumOrderVolume",
+            "request": "launch",
+            "mainClass": "MaximumOrderVolume",
+            "projectName": "leetcode_22ddfd5d"
+        },
+        {
+            "type": "java",
+            "name": "Launch ArrayReduction",
+            "request": "launch",
+            "mainClass": "ArrayReduction",
+            "projectName": "leetcode_22ddfd5d"
+        },
+        {
+            "type": "java",
+            "name": "Launch Gridland",
+            "request": "launch",
+            "mainClass": "Gridland",
+            "projectName": "leetcode_22ddfd5d"
+        },
+        {
+            "type": "java",
+            "name": "Launch StringPattern",
+            "request": "launch",
+            "mainClass": "StringPattern",
+            "projectName": "leetcode_22ddfd5d"
+        },
+        {
+            "type": "java",
+            "name": "Launch TaskSchedule",
+            "request": "launch",
+            "mainClass": "TaskSchedule",
+            "projectName": "leetcode_22ddfd5d"
+        },
+        {
+            "type": "java",
+            "name": "Launch Q6364",
+            "request": "launch",
+            "mainClass": "Q6364",
+            "projectName": "leetcode_22ddfd5d"
+        },
+        {
+            "type": "java",
             "name": "Launch Test01",
             "request": "launch",
             "mainClass": "Test01",
