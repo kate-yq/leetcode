@@ -52,7 +52,7 @@ public class Q2281 {
 
     
     private long getPostsum(long[] forward, long[] prefix, int from, int to, int m) {
-        int n = forward.length, cnt = to - from + 1;
+        int cnt = to - from + 1;
         return (prefix[to + 1] - prefix[from] - cnt * (0 == from ? 0 : forward[from - 1]) % mod) % mod * m % mod;
     }
 }
