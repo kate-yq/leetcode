@@ -1,6 +1,6 @@
 import java.util.*;
 
-class Q6362{
+class Q2570{
     public int[][] mergeArrays(int[][] nums1, int[][] nums2) {
         ArrayList<int[]> result = new ArrayList<>();
         int pointer1 = 0;

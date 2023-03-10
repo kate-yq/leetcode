@@ -1,4 +1,4 @@
-public class Q6368 {
+public class Q2575 {
     public int[] divisibilityArray(String word, int m) {
         int n = word.length();
         int[] div = new int[n];
@@ -15,7 +15,7 @@ public class Q6368 {
 
     public static void main(String[] args){
         String s = "4868438856666666";
-        Q6368 da = new Q6368();
+        Q2575 da = new Q2575();
         for (int i : da.divisibilityArray(s, 6)){
             System.out.println(i);
         }

@@ -1,6 +1,6 @@
 import java.util.Arrays;
 
-public class Q6365 {
+public class Q2571 {
     public int minOperations(int n) {
         // target >= 1
         // record the minimum operations needed for each index

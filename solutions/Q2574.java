@@ -1,4 +1,4 @@
-class Q6369{
+class Q2574{
     public int[] leftRigthDifference(int[] nums) {
         int n = nums.length;
         int[] sumL = new int[n];

@@ -1,6 +1,6 @@
 import java.util.*;
 
-public class Q6309 {
+public class Q2584 {
     public int findValidSplit(int[] nums) {
         int n = nums.length;
         Set<Integer>[] divisors = new Set[n];
@@ -39,7 +39,9 @@ public class Q6309 {
                 divisor.add(num / i);
             }
         }
-        divisor.add(num);
+        if (num > 1){
+            divisor.add(num);
+        }
         return divisor;
     }
 }

@@ -1,6 +1,6 @@
 import java.util.*;
 
-public class Q6308 {
+public class Q2583 {
     public long kthLargestLevelSum(TreeNode root, int k) {
         PriorityQueue<Long> minheap = new PriorityQueue<>();
         

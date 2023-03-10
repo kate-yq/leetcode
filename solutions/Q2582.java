@@ -1,4 +1,4 @@
-class Q6307 {
+class Q2582 {
     public int passThePillow(int n, int time) {
         int remaining  = time % (n-1);
         int count = time / (n-1);
