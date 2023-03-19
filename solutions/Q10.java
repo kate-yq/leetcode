@@ -16,7 +16,7 @@ public class Q10 {
                     dp[row][col] = dp[row][col-2];
                     // if * means 1 or more of previous
                     if (p.charAt(col-2) == '.' || p.charAt(col-2)==s.charAt(row-1)){
-                        dp[row][col] = dp[row][col] || dp[row-1][col];
+                        dp[row][col] |= dp[row-1][col];
                     }
                 }
             }

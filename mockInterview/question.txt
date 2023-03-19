@@ -1,28 +1,17 @@
-An image is represented by an m x n integer grid image 
-where image[i][j] represents the pixel value of the image.
+shortest word distance
 
-You are also given three integers sr, sc, and color. 
+input: String[] -> words
+        word1, word2
 
-You should perform a flood fill on the image starting from the pixel image[sr][sc].
+search every index in wordsarr for word1&2
+return the minimum diff of 2 index
 
-Flood fill: consider the starting pixel, plus any pixels connected 4-directionally to the starting pixel 
-of the same color as the starting pixel, 
-plus any pixels connected 4-directionally to those pixels (also with the same color),
-and so on. 
-Replace the color of all of the aforementioned pixels with color.
+[apple, a, b, apple]
 
-Return the modified image after performing the flood fill.
+word1: b, word2: apple
 
-example:
-1 1 1
-1 1 0
-1 0 1
+return 1
 
-sr: 1, sc: 1, color: 2
-
-return:
-2 2 2
-2 2 0
-2 0 1
-
-m,n <=50
+Gauranteed that both words in arr
+word1 != word2
+len: 10^5
