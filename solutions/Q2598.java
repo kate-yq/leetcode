@@ -1,6 +1,6 @@
 import java.util.HashMap;
 
-public class Q2593 {
+public class Q2598 {
     public int findSmallestInteger(int[] nums, int value) {
         HashMap<Integer, Integer> remain = new HashMap<>();
         for (int num:nums){

@@ -34,12 +34,4 @@ public class Solution2 {
         }
         return ans;
     }
-
-    public static void main(String[] args){
-        String testcase1 = "abccccdd";
-        String testcase2 = "aaabbbccccc";
-        Solution2 lP = new Solution2();
-        System.out.println("case1: "+lP.longestPalindrome(testcase1));
-        System.out.println("case2: "+lP.longestPalindrome(testcase2));
-    }
 }

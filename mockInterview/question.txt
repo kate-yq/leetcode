@@ -1,17 +1,19 @@
-shortest word distance
+Given an m x n binary matrix mat, return the distance of the nearest 0 for each cell.
 
-input: String[] -> words
-        word1, word2
+The distance between two adjacent cells is 1.
 
-search every index in wordsarr for word1&2
-return the minimum diff of 2 index
+0 0 0
+0 1 0
+1 1 1
 
-[apple, a, b, apple]
+return:
+distance to nearest 0
 
-word1: b, word2: apple
+0 0 0
+0 1 0
+1 2 1
 
-return 1
-
-Gauranteed that both words in arr
-word1 != word2
-len: 10^5
+1. possible to be all 0, not possible to be all 1
+2. move 4 directions
+3. 1 <= m,n <= 10^4
+    m*n <= 10^4

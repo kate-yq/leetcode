@@ -1,4 +1,4 @@
-public class Q2590 {
+public class Q2595 {
     public int[] evenOddBit(int n) {
         int[] ans = new int[2];
         boolean lastOdd = false;

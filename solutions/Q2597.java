@@ -1,6 +1,6 @@
 import java.util.HashMap;
 
-public class Q2592 {
+public class Q2597 {
     int sum;
     HashMap<Integer, Integer> set;
     int[] nums;

@@ -3,5 +3,6 @@
         "utils",
         "mockInterview",
         "solutions"
-    ]
+    ],
+    "java.debug.settings.onBuildFailureProceed": true
 }

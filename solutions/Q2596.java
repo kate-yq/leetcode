@@ -1,6 +1,6 @@
 import java.util.HashMap;
 
-public class Q2591 {
+public class Q2596 {
     public boolean checkValidGrid(int[][] grid) {
         if (grid[0][0] != 0){
             return false;
