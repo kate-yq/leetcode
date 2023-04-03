@@ -1,6 +1,6 @@
 import java.util.Stack;
 
-class Solution {
+class Q71 {
     public String simplifyPath(String path) {
         // Initialize a stack
         Stack<String> stack = new Stack<String>();
