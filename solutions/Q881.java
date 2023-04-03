@@ -1,6 +1,6 @@
 import java.util.Arrays;
 
-class Solution {
+class Q881 {
     public int numRescueBoats(int[] people, int limit) {
         Arrays.sort(people);
         int left = 0;

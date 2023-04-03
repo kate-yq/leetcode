@@ -1,4 +1,4 @@
-class Solution {
+class Q2560 {
     public int minCapability(int[] nums, int k) {
         // binary search for the result
         // as nums[i]<= 10^9
