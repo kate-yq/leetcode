@@ -1,4 +1,5 @@
 public class Solution1 {
+    
     public ListNode deteleDuplicate(ListNode head){
         if (head == null || head.next == null){
             return head;

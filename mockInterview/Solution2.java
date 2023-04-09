@@ -1,6 +1,7 @@
 import java.util.HashMap;
 
 public class Solution2 {
+    
     // "a" is palindrome
     // "" output 0
     // the letter could be rearranged

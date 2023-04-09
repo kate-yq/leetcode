@@ -10,6 +10,7 @@ import java.util.HashMap;
 // return: boolean 
 
 class Solution3 {
+    
     public boolean isValidDictionary(String[] wordlist, String seq){
         if (wordlist.length == 1){
             return true;

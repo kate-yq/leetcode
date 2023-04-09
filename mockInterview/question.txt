@@ -1,17 +1,17 @@
-Given an m x n integer matrix, search for a target int.
+int[] people: [i] is the weight of the ith person
 
-return true/false
+int limit: maximum weight each boat can carry
 
-the matrix is sorted as follows:
-for each row - ascending order
-for each col - ascending order
+Each boat carries at most two people
 
-no relationships between end of a row and beginning of next row
-.... end of a col and beginning of next col
+Return the minimum number of boats to carry every given person.
 
-example:
-1   3   5   7   9
-4   8  10  11  12
+[5, 4, 4, 3] limit: 8
+return 2           5 3, 4 4
 
-target: 8
-return true
+[5, 4, 2, 2] limit: 6
+return 3           5, 4, 2 2
+
+
+len <= 10^5
+0 <= people[i] <= limit
