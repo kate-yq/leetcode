@@ -5,11 +5,13 @@ public class Q234 {
         ListNode tail = reverse(mid);
         while(head != null && tail != null){
             if (head.val != tail.val){
+                reverse(mid);
                 return false;
             }
             head = head.next;
             tail = tail.next;
         }
+        reverse(mid);
         return true;
     }
 

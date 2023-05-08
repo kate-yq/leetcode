@@ -3,36 +3,26 @@ public class Q25 {
         if (head == null){
             return head;
         }
-        ListNode newhead = head;
-        ListNode tail = null;
-        int count = 0;
-        while (newhead!= null && count<k){
-            tail = newhead;
-            newhead = newhead.next;
-            count++;
+        ListNode tail = head;
+        ListNode newHead = head;
+        for (int i=0; i<k; i++){
+            if (tail == null){
+                return head;
+            }
+            tail = tail.next;
         }
-
-        // remaining not enough for k
-        if (count<k){
-            return head;
-        }
-        // remaining enough for k
-        tail.next = null;
-        ListNode temp = reverseKGroup(newhead, k);
-        ListNode ans = reverse(head, k, temp);
-        return ans;
+        newHead = reverse(head, tail);
+        head.next = reverseKGroup(tail, k);
+        return newHead;
     }
 
-    private ListNode reverse(ListNode head, int k, ListNode tail){
-        ListNode prev = head;
-        ListNode cur = null;
-        ListNode next = tail;
-        while(prev != null){
-            cur = prev;
-            prev = prev.next;
-            cur.next = next;
-            next = cur;
+    private ListNode reverse(ListNode head, ListNode tail){
+        if (head.next == tail){
+            return head;
         }
-        return cur;
+        ListNode newHead = reverse(head.next, tail);
+        head.next.next = head;
+        head.next = null;
+        return newHead;
     }
 }

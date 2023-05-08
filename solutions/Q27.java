@@ -1,17 +1,17 @@
-class Q283 {
-    public void moveZeroes(int[] nums) {
+public class Q27 {
+    public int removeElement(int[] nums, int val) {
+        if (nums.length == 0){
+            return 0;
+        }
         int slow = 0;
         int fast = 0;
         while (fast < nums.length){
-            if (nums[fast] != 0){
+            if (nums[fast] != val){
                 nums[slow] = nums[fast];
                 slow++;
             }
             fast++;
         }
-
-        for (int i=slow; i<nums.length; i++){
-            nums[i] = 0;
-        }
+        return slow;
     }
 }
