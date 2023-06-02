@@ -1,22 +1,25 @@
+import java.util.*;;
+
 public class Q739 {
     public int[] dailyTemperatures(int[] temperatures) {
         int n = temperatures.length;
         int[] days = new int[n];
 
-        // record the hottest day so that we know if there is an answer
-        int hottest = temperatures[n - 1];
-
-        for (int i = n - 2; i >= 0; i--) {
-            if (temperatures[i] >= hottest) {
-                hottest = temperatures[i];
-            } else {
-                int index = i + 1;
-                while (temperatures[index] <= temperatures[i]) {
-                    index = index + days[index];
-                }
-                days[i] = index - i;
+        Stack<Integer> monostack = new Stack<>();
+        for (int i=n-1; i>=0; i--){
+            while (!monostack.isEmpty() && temperatures[monostack.peek()] <= temperatures[i]){
+                monostack.pop();
             }
+
+            if (monostack.isEmpty()){
+                days[i] = 0;
+            } else {
+                days[i] = monostack.peek() - i;
+            }
+            monostack.push(i);
         }
+
         return days;
+
     }
 }

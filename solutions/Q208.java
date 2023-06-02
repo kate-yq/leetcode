@@ -1,63 +1,67 @@
 public class Q208 {
     TrieNode root;
-    int R = 26;
+
+    private static class TrieNode{
+        boolean val;
+        TrieNode[] children;
+
+        private TrieNode(){
+            this.val = false;
+            this.children = new TrieNode[26];
+        }
+    }
 
     public Q208() {
-        this.root = new TrieNode();
-        this.root.val = 0;
-        this.root.next = new TrieNode[R];
+        this.root = null;
     }
-
-    private class TrieNode {
-        int val;
-        TrieNode[] next;
-    }
-
+    
     public void insert(String word) {
-        int i = 0;
-        TrieNode cur = this.root;
-        while (i < word.length()) {
-            if (cur.next[Integer.valueOf(word.charAt(i))-97] == null){
-                TrieNode temp = new TrieNode();
-                temp.val = 0;
-                temp.next = new TrieNode[R];
-                cur.next[Integer.valueOf(word.charAt(i))-97] = temp;
-            }
-            cur = cur.next[Integer.valueOf(word.charAt(i))-97];
-            i++;
+        if (root == null){
+            root = new TrieNode();
         }
-        cur.val = 1;
-    }
+        TrieNode itr = root;
+        for (int i=0; i<word.length(); i++){
+            int next = word.charAt(i) - 'a';
 
-    public boolean search(String word) {
-        int i = 0;
-        TrieNode cur = this.root;
-        while (i < word.length()) {
-            if (cur.next[Integer.valueOf(word.charAt(i))-97] != null) {
-                cur = cur.next[Integer.valueOf(word.charAt(i))-97];
-                i++;
-            } else {
-                return false;
+            if (itr.children[next] == null){
+                itr.children[next] = new TrieNode();
             }
+            itr = itr.children[next];
         }
-        if (cur.val == 1) {
-            return true;
-        } else {
+        itr.val = true;
+    }
+    
+    public boolean search(String word) {
+        if (root == null){
             return false;
         }
-    }
 
-    public boolean startsWith(String prefix) {
-        int i = 0;
-        TrieNode cur = this.root;
-        while (i < prefix.length()) {
-            if (cur.next[Integer.valueOf(prefix.charAt(i))-97] != null) {
-                cur = cur.next[Integer.valueOf(prefix.charAt(i))-97];
-                i++;
-            } else {
+        TrieNode itr = root;
+        for (int i=0; i<word.length(); i++){
+            int next = word.charAt(i) -'a';
+            if (itr.children[next] == null){
                 return false;
             }
+            itr = itr.children[next];
         }
+
+        return itr.val;
+    }
+    
+    public boolean startsWith(String prefix) {
+        if (root == null){
+            return false;
+        }
+
+        TrieNode itr = root;
+        for (int i=0; i<prefix.length(); i++){
+            int next = prefix.charAt(i) -'a';
+            if (itr.children[next] == null){
+                return false;
+            }
+            itr = itr.children[next];
+        }
+
         return true;
     }
 }

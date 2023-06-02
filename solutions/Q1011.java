@@ -1,4 +1,4 @@
-class Solution {
+class Q1011 {
     public int shipWithinDays(int[] weights, int days) {
         int lo = 0;
         int hi = 0;

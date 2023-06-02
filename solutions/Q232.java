@@ -1,41 +1,37 @@
 import java.util.Stack;
 
 public class Q232 {
-    Stack<Integer> store;   //backwards
-    Stack<Integer> helper;  //as queue
+    Stack<Integer> s1;
+    Stack<Integer> s2;
     
     public Q232() {
-        this.store = new Stack<>();
-        this.helper = new Stack<>();
+        this.s1 = new Stack<>();
+        this.s2 = new Stack<>();
     }
     
     public void push(int x) {
-        store.push(x);
+        s1.push(x);
     }
     
     public int pop() {
-        while(!store.isEmpty()){
-            helper.push(store.pop());
+        if (s2.isEmpty()){
+            while (!s1.isEmpty()){
+                s2.push(s1.pop());
+            }
         }
-        int ans = helper.pop();
-        while(!helper.isEmpty()){
-            store.push(helper.pop());
-        }
-        return ans;
+        return s2.pop();
     }
     
     public int peek() {
-        while(!store.isEmpty()){
-            helper.push(store.pop());
+        if (s2.isEmpty()){
+            while (!s1.isEmpty()){
+                s2.push(s1.pop());
+            }
         }
-        int ans = helper.peek();
-        while(!helper.isEmpty()){
-            store.push(helper.pop());
-        }
-        return ans;
+        return s2.peek();
     }
     
     public boolean empty() {
-        return store.isEmpty();
+        return s1.isEmpty() && s2.isEmpty();
     }
 }
