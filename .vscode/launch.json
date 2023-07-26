@@ -6,6 +6,13 @@
   "configurations": [
     {
       "type": "java",
+      "name": "RequestParser",
+      "request": "launch",
+      "mainClass": "RequestParser",
+      "projectName": "leetcode_22ddfd5d"
+    },
+    {
+      "type": "java",
       "name": "Contest4",
       "request": "launch",
       "mainClass": "Contest4",
