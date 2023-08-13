@@ -6,6 +6,20 @@
   "configurations": [
     {
       "type": "java",
+      "name": "Q2818",
+      "request": "launch",
+      "mainClass": "Q2818",
+      "projectName": "leetcode_22ddfd5d"
+    },
+    {
+      "type": "java",
+      "name": "Q2812",
+      "request": "launch",
+      "mainClass": "Q2812",
+      "projectName": "leetcode_22ddfd5d"
+    },
+    {
+      "type": "java",
       "name": "RequestParser",
       "request": "launch",
       "mainClass": "RequestParser",
