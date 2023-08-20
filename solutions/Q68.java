@@ -3,86 +3,76 @@ import java.util.List;
 
 public class Q68 {
     public List<String> fullJustify(String[] words, int maxWidth) {
-        List<String> outcomes = new ArrayList<String>();
-        int start = 0;
-        while (start < words.length) {
-            StringBuilder temp = new StringBuilder();
-            int count = 0;
-            int end = start;
-            while (end < words.length) {
-                if (count + words[end].length() <= maxWidth) {
-                    count = count + words[end].length() + 1;
-                    end++;
-                } else {
-                    break;
-                }
+        int l = 0;
+        int r = 0;
+
+        List<String> ans = new ArrayList<>();
+
+        while (r < words.length) {
+            int sum = 0;
+            while (r < words.length && sum + words[r].length() + r - l <= maxWidth) {
+                sum += words[r].length();
+                r++;
             }
-            count--;
-            if (end == words.length) {
-                while (start < end - 1) {
-                    temp.append(words[start]);
-                    temp.append(" ");
-                    start++;
-                }
-                temp.append(words[start]);
-                for (int i = 0; i < maxWidth - count; i++) {
-                    temp.append(" ");
-                }
-            } else if (end - start == 1) {
-                temp.append(words[start]);
-                for (int i = 0; i < maxWidth - count; i++) {
-                    temp.append(" ");
-                }
-            } else if (end - start == 2) {
-                temp.append(words[start]);
-                for (int i = 0; i <= maxWidth - count; i++) {
-                    temp.append(" ");
-                }
-                start++;
-                temp.append(words[start]);
+            if (r < words.length) {
+                ans.add(getLine(words, l, r, sum, maxWidth));
             } else {
-                int space2 = (maxWidth - count) / (end - start - 1);
-                int space1 = maxWidth - count - space2 * (end - start - 1);
-                for (int n=0; n<space1; n++){
-                    temp.append(words[start]);
-                    temp.append(" ");
-                    for (int i = 0; i <= space2; i++) {
-                        temp.append(" ");
-                    }
-                    start++;
-                }
-                while (start < end - 1) {
-                    temp.append(words[start]);
-                    for (int i = 0; i <= space2; i++) {
-                        temp.append(" ");
-                    }
-                    start++;
-                }
-                temp.append(words[start]);
+                ans.add(getLastLine(words, l, r, sum, maxWidth));
             }
-            outcomes.add(temp.toString());
-            start++;
+
+            l = r;
         }
-        return outcomes;
+
+        return ans;
     }
 
-    public static void main(String[] args) {
-        String[] test_case_1 = { "This", "is", "an", "example", "of", "text", "justification." };
-        String[] test_case_2 = { "What", "must", "be", "acknowledgment", "shall", "be" };
-        String[] test_case_3 = { "Science", "is", "what", "we", "understand", "well", "enough", "to", "explain", "to",
-                "a", "computer.", "Art", "is", "everything", "else", "we", "do" };
-        Q68 fJ = new Q68();
-        System.out.println("test case 1:");
-        for (String s : fJ.fullJustify(test_case_1, 16)) {
-            System.out.println("[" + s + "]");
+    private String getLine(String[] words, int l, int r, int sum, int maxWidth) {
+        StringBuilder sb = new StringBuilder();
+
+        if (r - l == 1) {
+            return getLastLine(words, l, r, sum, maxWidth);
         }
-        System.out.println("test case 2:");
-        for (String s : fJ.fullJustify(test_case_2, 16)) {
-            System.out.println("[" + s + "]");
+
+        int space = (maxWidth - sum) / (r - 1 - l);
+        int remain = (maxWidth - sum) % (r - 1 - l);
+
+        for (int i = 0; i < remain; i++) {
+            sb.append(words[l]);
+            for (int j = 0; j < space + 1; j++) {
+                sb.append(" ");
+            }
+            l++;
         }
-        System.out.println("test case 3:");
-        for (String s : fJ.fullJustify(test_case_3, 20)) {
-            System.out.println("[" + s + "]");
+
+        while (l < r - 1) {
+            sb.append(words[l]);
+            for (int j = 0; j < space; j++) {
+                sb.append(" ");
+            }
+            l++;
         }
+
+        sb.append(words[l]);
+
+        return sb.toString();
+    }
+
+    private String getLastLine(String[] words, int l, int r, int sum, int maxWidth) {
+        StringBuilder sb = new StringBuilder();
+
+        int remain = maxWidth - sum - (r - 1 - l);
+
+        while (l < r - 1) {
+            sb.append(words[l]);
+            sb.append(" ");
+            l++;
+        }
+
+        sb.append(words[l]);
+        for (int i = 0; i < remain; i++) {
+            sb.append(" ");
+        }
+
+        return sb.toString();
     }
 }
