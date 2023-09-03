@@ -6,6 +6,13 @@
   "configurations": [
     {
       "type": "java",
+      "name": "ttGPU",
+      "request": "launch",
+      "mainClass": "ttGPU",
+      "projectName": "leetcode_22ddfd5d"
+    },
+    {
+      "type": "java",
       "name": "C4",
       "request": "launch",
       "mainClass": "C4",
